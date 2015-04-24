@@ -40,10 +40,6 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnRandomPlacement = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbDeleteCreature = new System.Windows.Forms.RadioButton();
-            this.rbMoveCreature = new System.Windows.Forms.RadioButton();
-            this.rbAddCreature = new System.Windows.Forms.RadioButton();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnNextStep = new System.Windows.Forms.Button();
             this.btnRunAndStop = new System.Windows.Forms.Button();
@@ -53,8 +49,8 @@
             this.btnStop = new System.Windows.Forms.Button();
             this.endlessCycleTimer = new System.Windows.Forms.Timer(this.components);
             this.pField = new Project_Life.DoubleBufferedPanel();
+            this.controlsTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -138,7 +134,7 @@
             // btnRandomPlacement
             // 
             this.btnRandomPlacement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRandomPlacement.Location = new System.Drawing.Point(646, 377);
+            this.btnRandomPlacement.Location = new System.Drawing.Point(646, 376);
             this.btnRandomPlacement.Name = "btnRandomPlacement";
             this.btnRandomPlacement.Size = new System.Drawing.Size(87, 29);
             this.btnRandomPlacement.TabIndex = 2;
@@ -146,54 +142,10 @@
             this.btnRandomPlacement.UseVisualStyleBackColor = true;
             this.btnRandomPlacement.Click += new System.EventHandler(this.btnRandomPlacement_Click);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.rbDeleteCreature);
-            this.groupBox1.Controls.Add(this.rbMoveCreature);
-            this.groupBox1.Controls.Add(this.rbAddCreature);
-            this.groupBox1.Location = new System.Drawing.Point(621, 41);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(128, 90);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Mode";
-            // 
-            // rbDeleteCreature
-            // 
-            this.rbDeleteCreature.AutoSize = true;
-            this.rbDeleteCreature.Location = new System.Drawing.Point(6, 65);
-            this.rbDeleteCreature.Name = "rbDeleteCreature";
-            this.rbDeleteCreature.Size = new System.Drawing.Size(107, 17);
-            this.rbDeleteCreature.TabIndex = 2;
-            this.rbDeleteCreature.Text = "Delete a creature";
-            this.rbDeleteCreature.UseVisualStyleBackColor = true;
-            // 
-            // rbMoveCreature
-            // 
-            this.rbMoveCreature.AutoSize = true;
-            this.rbMoveCreature.Location = new System.Drawing.Point(6, 42);
-            this.rbMoveCreature.Name = "rbMoveCreature";
-            this.rbMoveCreature.Size = new System.Drawing.Size(103, 17);
-            this.rbMoveCreature.TabIndex = 1;
-            this.rbMoveCreature.Text = "Move a creature";
-            this.rbMoveCreature.UseVisualStyleBackColor = true;
-            // 
-            // rbAddCreature
-            // 
-            this.rbAddCreature.AutoSize = true;
-            this.rbAddCreature.Checked = true;
-            this.rbAddCreature.Location = new System.Drawing.Point(6, 19);
-            this.rbAddCreature.Name = "rbAddCreature";
-            this.rbAddCreature.Size = new System.Drawing.Size(109, 17);
-            this.rbAddCreature.TabIndex = 0;
-            this.rbAddCreature.TabStop = true;
-            this.rbAddCreature.Text = "Add new creature";
-            this.rbAddCreature.UseVisualStyleBackColor = true;
-            // 
             // btnClear
             // 
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Location = new System.Drawing.Point(646, 412);
+            this.btnClear.Location = new System.Drawing.Point(646, 411);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(87, 29);
             this.btnClear.TabIndex = 4;
@@ -204,7 +156,7 @@
             // btnNextStep
             // 
             this.btnNextStep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNextStep.Location = new System.Drawing.Point(646, 342);
+            this.btnNextStep.Location = new System.Drawing.Point(646, 111);
             this.btnNextStep.Name = "btnNextStep";
             this.btnNextStep.Size = new System.Drawing.Size(87, 29);
             this.btnNextStep.TabIndex = 5;
@@ -215,7 +167,7 @@
             // btnRunAndStop
             // 
             this.btnRunAndStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRunAndStop.Location = new System.Drawing.Point(646, 307);
+            this.btnRunAndStop.Location = new System.Drawing.Point(646, 76);
             this.btnRunAndStop.Name = "btnRunAndStop";
             this.btnRunAndStop.Size = new System.Drawing.Size(87, 29);
             this.btnRunAndStop.TabIndex = 6;
@@ -226,7 +178,7 @@
             // lbCoordinates
             // 
             this.lbCoordinates.AutoSize = true;
-            this.lbCoordinates.Location = new System.Drawing.Point(621, 134);
+            this.lbCoordinates.Location = new System.Drawing.Point(643, 207);
             this.lbCoordinates.Name = "lbCoordinates";
             this.lbCoordinates.Size = new System.Drawing.Size(31, 13);
             this.lbCoordinates.TabIndex = 7;
@@ -235,7 +187,7 @@
             // lbCurrentX
             // 
             this.lbCurrentX.AutoSize = true;
-            this.lbCurrentX.Location = new System.Drawing.Point(636, 175);
+            this.lbCurrentX.Location = new System.Drawing.Point(643, 262);
             this.lbCurrentX.Name = "lbCurrentX";
             this.lbCurrentX.Size = new System.Drawing.Size(14, 13);
             this.lbCurrentX.TabIndex = 8;
@@ -244,7 +196,7 @@
             // lbCurrentY
             // 
             this.lbCurrentY.AutoSize = true;
-            this.lbCurrentY.Location = new System.Drawing.Point(636, 188);
+            this.lbCurrentY.Location = new System.Drawing.Point(643, 275);
             this.lbCurrentY.Name = "lbCurrentY";
             this.lbCurrentY.Size = new System.Drawing.Size(14, 13);
             this.lbCurrentY.TabIndex = 9;
@@ -254,7 +206,7 @@
             // 
             this.btnStop.Enabled = false;
             this.btnStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStop.Location = new System.Drawing.Point(646, 272);
+            this.btnStop.Location = new System.Drawing.Point(646, 41);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(87, 29);
             this.btnStop.TabIndex = 10;
@@ -277,8 +229,14 @@
             this.pField.TabIndex = 0;
             this.pField.Paint += new System.Windows.Forms.PaintEventHandler(this.pField_Paint);
             this.pField.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pField_MouseDown);
+            this.pField.MouseHover += new System.EventHandler(this.pField_MouseHover);
             this.pField.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pField_MouseMove);
             this.pField.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pField_MouseUp);
+            // 
+            // controlsTooltip
+            // 
+            this.controlsTooltip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.controlsTooltip.Popup += new System.Windows.Forms.PopupEventHandler(this.controlsTooltip_Popup);
             // 
             // Form1
             // 
@@ -293,11 +251,10 @@
             this.Controls.Add(this.btnRunAndStop);
             this.Controls.Add(this.btnNextStep);
             this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnRandomPlacement);
             this.Controls.Add(this.pField);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -305,8 +262,6 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -323,10 +278,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.Button btnRandomPlacement;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton rbDeleteCreature;
-        private System.Windows.Forms.RadioButton rbMoveCreature;
-        private System.Windows.Forms.RadioButton rbAddCreature;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnNextStep;
         private System.Windows.Forms.Button btnRunAndStop;
@@ -337,6 +288,7 @@
         private System.Windows.Forms.ToolStripMenuItem saveAsImageToolStripMenuItem;
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.Timer endlessCycleTimer;
+        private System.Windows.Forms.ToolTip controlsTooltip;
     }
 }
 

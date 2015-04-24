@@ -48,7 +48,7 @@ namespace Project_Life
         private void pField_MouseDown(object sender, MouseEventArgs e)
         {
             #region Adding creature
-            if (rbAddCreature.Checked == true)
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
                 int currentX = 0;
                 int currentY = 0;
@@ -65,16 +65,13 @@ namespace Project_Life
                 lbCurrentX.Text = currentX.ToString();
                 lbCurrentY.Text = currentY.ToString();
 
-                Creature tmpCreature = new Creature();
-                tmpCreature.x = currentX - 1;
-                tmpCreature.y = currentY - 1;
-                tmpCreature.dead = false;
+                Creature tmpCreature = new Creature(currentX - 1, currentY - 1);
                 tribe.Add(tmpCreature);
                 map.NewCreature(tmpCreature);
             }
             #endregion
             #region Deleting creature
-            if (rbDeleteCreature.Checked == true)
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
             {
                 int currentX = 0;
                 int currentY = 0;
@@ -103,6 +100,7 @@ namespace Project_Life
                         map.map[currentX, currentY] = 0;
                     }
                 }
+                pField.Refresh();
             }
             #endregion
         }
@@ -113,7 +111,7 @@ namespace Project_Life
         {
             Graphics g = e.Graphics;
             g.SmoothingMode = SmoothingMode.AntiAlias;
-            Pen line = new Pen(SystemColors.ControlDarkDark);
+            Pen line = new Pen(Color.FromArgb(127, 140, 141));
             Brush fill = new SolidBrush(Color.FromArgb(52, 152, 219));
 
             Pen creatureDraw = new Pen(Color.FromArgb(41, 128, 185));
@@ -147,6 +145,7 @@ namespace Project_Life
         #region New simulation
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            btnStop_Click(sender, e);
             tribe.Clear();
             map.Clear();
             pField.Refresh();
@@ -267,10 +266,7 @@ namespace Project_Life
                     if (y == 32)
                         cn.endy--;
 
-                    Creature temporary = new Creature();
-                    temporary.dead = false;
-                    temporary.x = x;
-                    temporary.y = y;
+                    Creature temporary = new Creature(x, y);
 
                     if (neighborsOfNeighbors(cn, ref map))
                     {
@@ -331,6 +327,8 @@ namespace Project_Life
         #region Saving to image
         private void saveAsImageToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            btnStop_Click(sender, e);
+
             SaveFileDialog saveDialog = new SaveFileDialog();
             saveDialog.Title = "Save in PNG";
             saveDialog.InitialDirectory = Application.StartupPath;
@@ -348,6 +346,8 @@ namespace Project_Life
         #region Saving to file
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            btnStop_Click(sender, e);
+
             SaveFileDialog saveDialog = new SaveFileDialog();
             saveDialog.Title = "Save simulation";
             saveDialog.InitialDirectory = Application.StartupPath;
@@ -434,5 +434,16 @@ namespace Project_Life
             }
         }
         #endregion
+
+        #region 
+        private void pField_MouseHover(object sender, EventArgs e)
+        {
+            controlsTooltip_Popup(sender, popupe);
+        }
+
+        private void controlsTooltip_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
     }
 }

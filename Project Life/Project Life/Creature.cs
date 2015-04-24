@@ -13,5 +13,17 @@ namespace Project_Life
         public int x;
         public int y;
         public bool dead = false;
+
+        public Creature()
+        {
+
+        }
+
+        public Creature (int x, int y)
+        {
+            this.x = x;
+            this.y = y;
+            this.dead = false;
+        }
     }
 }

@@ -51,8 +51,8 @@
             this.lbCurrentX = new System.Windows.Forms.Label();
             this.lbCurrentY = new System.Windows.Forms.Label();
             this.btnStop = new System.Windows.Forms.Button();
-            this.pField = new Project_Life.DoubleBufferedPanel();
             this.endlessCycleTimer = new System.Windows.Forms.Timer(this.components);
+            this.pField = new Project_Life.DoubleBufferedPanel();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -144,6 +144,7 @@
             this.btnRandomPlacement.TabIndex = 2;
             this.btnRandomPlacement.Text = "Random";
             this.btnRandomPlacement.UseVisualStyleBackColor = true;
+            this.btnRandomPlacement.Click += new System.EventHandler(this.btnRandomPlacement_Click);
             // 
             // groupBox1
             // 
@@ -198,6 +199,7 @@
             this.btnClear.TabIndex = 4;
             this.btnClear.Text = "Clear the field";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnNextStep
             // 
@@ -260,6 +262,11 @@
             this.btnStop.UseVisualStyleBackColor = true;
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
+            // endlessCycleTimer
+            // 
+            this.endlessCycleTimer.Interval = 500;
+            this.endlessCycleTimer.Tick += new System.EventHandler(this.endlessCycleTimer_Tick);
+            // 
             // pField
             // 
             this.pField.BackColor = System.Drawing.Color.White;
@@ -272,11 +279,6 @@
             this.pField.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pField_MouseDown);
             this.pField.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pField_MouseMove);
             this.pField.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pField_MouseUp);
-            // 
-            // endlessCycleTimer
-            // 
-            this.endlessCycleTimer.Interval = 500;
-            this.endlessCycleTimer.Tick += new System.EventHandler(this.endlessCycleTimer_Tick);
             // 
             // Form1
             // 

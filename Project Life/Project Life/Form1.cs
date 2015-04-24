@@ -22,9 +22,6 @@ namespace Project_Life
         int numOfCells = 120;
         int cellSize = 12;
         int diameter = 8;
-        int selectStep = 0;
-        int firstCreature = 0;
-        static bool modeRun = false;
 
         public static List<Creature> tribe = new List<Creature>();         // Список всех существ
         public static List<Creature> newGeneration = new List<Creature>(); // Список родившихся существ
@@ -53,11 +50,6 @@ namespace Project_Life
             #region Adding creature
             if (rbAddCreature.Checked == true)
             {
-                if (selectStep == 0)
-                {
-                    selectStep = 1;
-                }
-
                 int currentX = 0;
                 int currentY = 0;
 
@@ -79,10 +71,6 @@ namespace Project_Life
                 tmpCreature.dead = false;
                 tribe.Add(tmpCreature);
                 map.NewCreature(tmpCreature);
-            }
-            else
-            {
-                selectStep = 0;
             }
             #endregion
             #region Deleting creature
@@ -117,50 +105,6 @@ namespace Project_Life
                 }
             }
             #endregion
-            #region TODO
-            /*if (rbMoveCreature.Checked == true)
-            {
-                if (selectStep == 0)
-                {
-                    selectStep = 1;
-                }
-
-                for (int i = 0; i < tribe.Count; ++i)
-                {
-                    if (e.X < tribe[i].x + diameter / 2 && e.X > tribe[i].x - diameter / 2 &&
-                        e.Y < tribe[i].y + diameter / 2 && e.Y > tribe[i].y - diameter / 2)
-                    {
-                        if (selectStep == 2)
-                        {
-                            int currentX = 0;
-                            int currentY = 0;
-
-                            for (int c = 0; c < e.X; c = c + 12)
-                            {
-                                currentX++;
-                            }
-
-                            for (int c = 0; c < e.Y; c = c + 12)
-                            {
-                                currentY++;
-                            }
-
-
-                        }
-                        if (selectStep == 2)
-                        {
-                            selectStep = 0;
-                        }
-
-                        if (selectStep == 1)
-                        {
-                            selectStep = 2;
-                        }
-                        break;
-                    }
-                }
-            }*/
-            #endregion
         }
         #endregion
 
@@ -170,10 +114,9 @@ namespace Project_Life
             Graphics g = e.Graphics;
             g.SmoothingMode = SmoothingMode.AntiAlias;
             Pen line = new Pen(SystemColors.ControlDarkDark);
-            Brush fill = new SolidBrush(SystemColors.InactiveCaption);
-            Brush fillSelect = new SolidBrush(Color.Tomato);
+            Brush fill = new SolidBrush(Color.FromArgb(52, 152, 219));
 
-            Pen creatureDraw = new Pen(SystemColors.ControlDarkDark);
+            Pen creatureDraw = new Pen(Color.FromArgb(41, 128, 185));
             creatureDraw.Width = 2;
 
             for (int y = 0; y < numOfCells; ++y)
@@ -188,16 +131,8 @@ namespace Project_Life
 
             for (int i = 0; i < tribe.Count; ++i)
             {
-                g.DrawEllipse(creatureDraw, ((tribe[i].x) * 12) + 2, ((tribe[i].y) * 12) + 2, diameter, diameter);
-
-                if (selectStep == 2 && i == firstCreature)
-                {
-                    g.FillEllipse(fillSelect, ((tribe[i].x)* 12) + 2, ((tribe[i].y) * 12) + 2, diameter, diameter);
-                }
-                else
-                {
-                    g.FillEllipse(fill, ((tribe[i].x) * 12) + 2, ((tribe[i].y) * 12) + 2, diameter, diameter);
-                }
+                g.DrawRectangle(creatureDraw, ((tribe[i].x) * 12) + 2, ((tribe[i].y) * 12) + 2, diameter, diameter);
+                g.FillRectangle(fill, ((tribe[i].x) * 12) + 2, ((tribe[i].y) * 12) + 2, diameter, diameter);
             }
         }
         #endregion
@@ -212,13 +147,16 @@ namespace Project_Life
         #region New simulation
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            selectStep = 0;
-            firstCreature = 0;
             tribe.Clear();
             map.Clear();
             pField.Refresh();
             lbCurrentX.Text = "0";
             lbCurrentY.Text = "0";
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            newToolStripMenuItem_Click(sender, e);
         }
         #endregion
 
@@ -439,13 +377,7 @@ namespace Project_Life
         #region Opening file
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            selectStep = 0;
-            firstCreature = 0;
-            tribe.Clear();
-            map.Clear();
-            pField.Refresh();
-            lbCurrentX.Text = "0";
-            lbCurrentY.Text = "0";
+            newToolStripMenuItem_Click(sender, e);
 
             OpenFileDialog openDialog = new OpenFileDialog();
             openDialog.Title = "Open simulation";
@@ -471,7 +403,35 @@ namespace Project_Life
                     }
                 }
             }
+        }
+        #endregion
 
+        #region Random placement
+        private void btnRandomPlacement_Click(object sender, EventArgs e)
+        {   //Размещаем на поле случайным образом от 50 до 200 существ
+            btnStop_Click(sender, e);
+            newToolStripMenuItem_Click(sender, e);
+
+            Random random = new Random();
+            int numberOfCreatures = random.Next(50, 200);
+
+            for (int i = 0; i < numberOfCreatures; ++i)
+            {
+                int x, y;
+                while(true)
+                {
+                    x = random.Next(0, 49);
+                    y = random.Next(0, 32);
+                    if (map.map[x, y] == 0)
+                    {
+                        break;
+                    }
+                }
+                Creature tmpCreature = new Creature(x, y);
+                tribe.Add(tmpCreature);
+                map.NewCreature(tmpCreature);
+                pField.Refresh();
+            }
         }
         #endregion
     }

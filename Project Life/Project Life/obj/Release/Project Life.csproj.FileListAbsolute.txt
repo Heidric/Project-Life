@@ -1,0 +1,36 @@
+C:\Workspace\Программная инженерия\Project Life\Project Life\bin\Release\Project Life.exe.config
+C:\Workspace\Программная инженерия\Project Life\Project Life\bin\Release\Project Life.exe
+C:\Workspace\Программная инженерия\Project Life\Project Life\bin\Release\Project Life.pdb
+C:\Workspace\Программная инженерия\Project Life\Project Life\obj\Release\Project_Life.Form1.resources
+C:\Workspace\Программная инженерия\Project Life\Project Life\obj\Release\Project_Life.Properties.Resources.resources
+C:\Workspace\Программная инженерия\Project Life\Project Life\obj\Release\Project Life.csproj.GenerateResource.Cache
+C:\Workspace\Программная инженерия\Project Life\Project Life\obj\Release\Project Life.exe
+C:\Workspace\Программная инженерия\Project Life\Project Life\obj\Release\Project Life.pdb
+C:\Workspace\Программная инженерия\Project Life\Project Life\obj\Release\Project Life.csprojResolveAssemblyReference.cache
+E:\Workspace\Программная инженерия\Project Life\Project Life\bin\Release\Project Life.exe.config
+E:\Workspace\Программная инженерия\Project Life\Project Life\obj\Release\Project Life.exe
+E:\Workspace\Программная инженерия\Project Life\Project Life\obj\Release\Project Life.pdb
+E:\Workspace\Программная инженерия\Project Life\Project Life\bin\Release\Project Life.exe
+E:\Workspace\Программная инженерия\Project Life\Project Life\bin\Release\Project Life.pdb
+E:\Workspace\Программная инженерия\Project Life\Project Life\obj\Release\Project Life.csprojResolveAssemblyReference.cache
+E:\Workspace\Программная инженерия\Project Life\Project Life\obj\Release\Project_Life.Form1.resources
+E:\Workspace\Программная инженерия\Project Life\Project Life\obj\Release\Project_Life.Properties.Resources.resources
+E:\Workspace\Программная инженерия\Project Life\Project Life\obj\Release\Project Life.csproj.GenerateResource.Cache
+D:\Project Life\Project Life\bin\Release\Project Life.exe.config
+D:\Project Life\Project Life\obj\Release\Project Life.exe
+D:\Project Life\Project Life\obj\Release\Project Life.pdb
+D:\Project Life\Project Life\bin\Release\Project Life.exe
+D:\Project Life\Project Life\bin\Release\Project Life.pdb
+D:\Project Life\Project Life\obj\Release\Project Life.csprojResolveAssemblyReference.cache
+D:\Project Life\Project Life\obj\Release\Project_Life.Form1.resources
+D:\Project Life\Project Life\obj\Release\Project_Life.Properties.Resources.resources
+D:\Project Life\Project Life\obj\Release\Project Life.csproj.GenerateResource.Cache
+F:\Project Life\Project Life\bin\Release\Project Life.exe.config
+F:\Project Life\Project Life\obj\Release\Project Life.exe
+F:\Project Life\Project Life\obj\Release\Project Life.pdb
+F:\Project Life\Project Life\bin\Release\Project Life.exe
+F:\Project Life\Project Life\bin\Release\Project Life.pdb
+F:\Project Life\Project Life\obj\Release\Project Life.csprojResolveAssemblyReference.cache
+F:\Project Life\Project Life\obj\Release\Project_Life.Form1.resources
+F:\Project Life\Project Life\obj\Release\Project_Life.Properties.Resources.resources
+F:\Project Life\Project Life\obj\Release\Project Life.csproj.GenerateResource.Cache
